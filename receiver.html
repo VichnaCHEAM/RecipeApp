@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receiver Page</title>
+</head>
+<body>
+    <h1>Receiver Page</h1>
+    <div id="cardFormContainer">
+        <!-- The card form block will be placed here -->
+    </div>
+    <button onclick="deleteDiv('cardFormContainer')">Delete Card Form Div</button>
+    
+    <div id="otherDivContainer">
+        <!-- The other div block will be placed here -->
+    </div>
+    <button onclick="deleteDiv('otherDivContainer')">Delete Other Div</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cardFormBlock = localStorage.getItem('cardFormBlock');
+            const otherDivBlock = localStorage.getItem('otherDivBlock');
+            if (cardFormBlock) {
+                document.getElementById('cardFormContainer').innerHTML = cardFormBlock;
+            } else {
+                console.error('Card form block not found in local storage');
+            }
+            if (otherDivBlock) {
+                document.getElementById('otherDivContainer').innerHTML = otherDivBlock;
+            } else {
+                console.error('Other div block not found in local storage');
+            }
+        });
+
+        function deleteDiv(containerId) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = ''; // Clear the content of the div
+                localStorage.removeItem(containerId); // Remove the corresponding item from localStorage
+            } else {
+                console.error('Container not found:', containerId);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sender Page</title>
+</head>
+<body>
+    <h1>Sender Page</h1>
+    <div id="cardFormBlock">
+        <!-- Your first div content goes here -->
+        <h2>Card Form</h2>
+        <form>
+            <img src="./asseets/logo.jpg">
+        </form>
+    </div>
+    <div id="otherDivBlock">
+        <img src="./asseets/recipes/BBQ/bbq.jpg">
+        <h2>Other Content</h2>
+        <p>Some other content...</p>
+    </div>
+    <button onclick="sendCardForm()">Send Card Form</button>
+    <button onclick="sendOtherDiv()">Send Other Div</button>
+
+    <script>
+        function sendCardForm() {
+            const cardFormBlock = document.getElementById('cardFormBlock').innerHTML;
+            localStorage.setItem('cardFormBlock', cardFormBlock);
+            window.location.href = 'receiver.html';
+        }
+
+        function sendOtherDiv() {
+            const otherDivBlock = document.getElementById('otherDivBlock').innerHTML;
+            localStorage.setItem('otherDivBlock', otherDivBlock);
+            window.location.href = 'receiver.html';
+        }
+    </script>
+</body>
+</html>
